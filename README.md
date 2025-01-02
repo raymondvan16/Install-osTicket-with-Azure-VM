@@ -16,108 +16,80 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 - Windows 10</b> (21H2)
 
 <h2>List of Prerequisites</h2>
+Log into the VM with Remote Desktop
 
----
+Within the VM (osticket-vm), download the osTicket-Installation-Files.zip and unzip it onto your desktop. The folder should be called “osTicket-Installation-Files”
+We will use the files in this folder to install osTicket and some of the dependencies.
 
-### **1. Download File**
-- **Windows**: Windows 10, Windows Server 2012 or newer.
-- **Linux**: Ubuntu, CentOS, or other Linux distributions with web server support.
+Install / Enable IIS in Windows WITH CGI
+World Wide Web Services -> Application Development Features -> [X] CGI
 
----
+From the “osTicket-Installation-Files” folder, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
 
-### **2. Web Server**
-- **IIS (Internet Information Services)**: Version 7 or newer for Windows.
-- **Apache**: For Linux or macOS setups.
+From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
 
----
+Create the directory C:\PHP
 
-### **3. PHP**
-- **Supported PHP Versions**: 7.2 to 7.4 (osTicket does not support PHP 8.x as of now).
-- **PHP Extensions** (these must be enabled):
-  - **php_imap.dll**: For email fetching.
-  - **php_intl.dll**: For internationalization support.
-  - **php_opcache.dll**: For performance optimization.
+From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder
 
----
+From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
 
-### **4. Database**
-- **MySQL 5.5 or newer** (MariaDB can also work).
+From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
+Typical Setup ->
+Launch Configuration Wizard (after install) ->
+Standard Configuration ->
+Username: root
+Password: root
 
----
+Open IIS as an Admin
 
-### **5. Required Dependencies and Tools**
-- **PHP Manager for IIS**: For configuring PHP with IIS (if using Windows IIS).
-- **Microsoft Visual C++ Redistributable**: Required for running PHP.
-- **URL Rewrite Module** (if using IIS): For clean, SEO-friendly URLs.
-- **HeidiSQL** (optional): A GUI tool for managing MySQL databases.
+Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
 
----
+Reload IIS (Open IIS, Stop and Start the server)
 
-### **6. Browser Access**
-- A modern web browser (e.g., Chrome, Firefox, Edge) to access and configure osTicket via its web interface.
+Install osTicket v1.15.8
+From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
+Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
 
----
+Reload IIS (Open IIS, Stop and Start the server)
 
-### **7. Hardware Requirements**
-- **Processor**: Minimum 2 GHz (recommendation: multi-core).
-- **RAM**: 2 GB minimum (4 GB or more recommended for larger environments).
-- **Storage**: At least 10 GB free space for the operating system, database, and attachments.
+Go to sites -> Default -> osTicket
+On the right, click “Browse *:80”
 
----
+Note that some extensions are not enabled
+Go back to IIS, sites -> Default -> osTicket
+Double-click PHP Manager
+Click “Enable or disable an extension”
+Enable: php_imap.dll
+Enable: php_intl.dll
+Enable: php_opcache.dll
+Refresh the osTicket site in your browser, observe the changes
 
-### **8. Downloadable Files**
-- **osTicket Installation Files**:
-  - The main osTicket zip package (e.g., `osTicket-v1.15.x.zip`).
-  - Additional dependencies (e.g., PHP, MySQL installers).
+Rename: ost-config.php
+From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
+To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
 
----
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
-<img src="" alt="osTicket logo"/>
+Assign Permissions: ost-config.php
+Disable inheritance -> Remove All
+New Permissions -> Everyone -> All
 
-<h2>Installation Steps</h2>
+Continue Setting up osTicket in the browser (click Continue)
+Name Helpdesk
+Default email (receives email from customers)
+
+From the “osTicket-Installation-Files” folder, install HeidiSQL.
+Open Heidi SQL
+Create a new session, root/root
+Connect to the session
+Create a database called “osTicket”
+
+Continue Setting up osTicket in the browser
+MySQL Database: osTicket
+MySQL Username: root
+MySQL Password: root
+Click “Install Now!”
+
+Congratulations, hopefully it is installed with no errors!
+Browse to your help desk login page: http://localhost/osTicket/scp/login.php
+
 
