@@ -19,7 +19,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 ---
 
-### **1. Operating System**
+### **1. Download File**
 - **Windows**: Windows 10, Windows Server 2012 or newer.
 - **Linux**: Ubuntu, CentOS, or other Linux distributions with web server support.
 
