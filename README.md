@@ -35,9 +35,10 @@ World Wide Web Services -> Application Development Features -> [X] CGI
 
 
 -From the “osTicket-Installation-Files” folder, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+<p><img src="https://i.imgur.com/HJCZaRv.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
 </p>
-
+<p><img src="https://i.imgur.com/CfHIBJ0.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 
 -From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
