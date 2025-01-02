@@ -42,57 +42,41 @@ World Wide Web Services -> Application Development Features -> [X] CGI
 
 
 -From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+<p><img src="https://i.imgur.com/zfSW2SO.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
 </p>
 
 -Create the directory C:\PHP
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+<p><img src="https://i.imgur.com/e0V4Kb8.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
 </p>
-
 -From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+<p><img src="https://i.imgur.com/Wz47urt.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
 </p>
 
 -From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
 Typical Setup ->
-Launch Configuration Wizard (after install) ->
+-Launch Configuration Wizard (after install) ->
 Standard Configuration ->
 Username: root
 Password: root
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+<p><img src="https://i.imgur.com/zTcqb4m.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+<p><img src="https://i.imgur.com/JdtCkZo.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+<p><img src="https://i.imgur.com/aacM2lY.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+<p><img src="https://i.imgur.com/92vYEjV.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
 </p>
 
 -Open IIS as an Admin
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Reload IIS (Open IIS, Stop and Start the server)
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Install osTicket v1.15.8
-From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
+-From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
 Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Reload IIS (Open IIS, Stop and Start the server)
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Go to sites -> Default -> osTicket
 On the right, click “Browse *:80”
-<p><img src="" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
-</p>
-
 -Note that some extensions are not enabled
 Go back to IIS, sites -> Default -> osTicket
 Double-click PHP Manager
