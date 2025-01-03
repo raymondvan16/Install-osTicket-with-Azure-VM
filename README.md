@@ -71,18 +71,29 @@ Password: root
 -Open IIS as an Admin
 
 -Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
+<p><img src="https://i.imgur.com/NNmEEtc.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+<p><img src="https://i.imgur.com/0I9ZVZv.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Reload IIS (Open IIS, Stop and Start the server)
+<p><img src="https://i.imgur.com/gLQxV7p.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Install osTicket v1.15.8
-
--From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
+From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
 Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
+<p><img src="https://i.imgur.com/gEHBSZX.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Reload IIS (Open IIS, Stop and Start the server)
 
 -Go to sites -> Default -> osTicket
 On the right, click “Browse *:80”
+<p><img src="https://i.imgur.com/YgaUZSn.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+<p><img src="https://i.imgur.com/wOxuxQF.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Note that some extensions are not enabled
 Go back to IIS, sites -> Default -> osTicket
@@ -98,10 +109,11 @@ Refresh the osTicket site in your browser, observe the changes
 From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
 To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
 
-
 -Assign Permissions: ost-config.php
 Disable inheritance -> Remove All
 New Permissions -> Everyone -> All
+<p><img src="https://i.imgur.com/xUED9oP.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Continue Setting up osTicket in the browser (click Continue)
 Name Helpdesk
@@ -110,18 +122,24 @@ Default email (receives email from customers)
 
 -From the “osTicket-Installation-Files” folder, install HeidiSQL.
 Open Heidi SQL
-Create a new session, root/root
+
+-Create a new session, root/root
+<p><img src="https://i.imgur.com/WVQ5caM.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
+
 Connect to the session
 Create a database called “osTicket”
-
+<p><img src="https://i.imgur.com/EeVrryu.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
 -Continue Setting up osTicket in the browser
 MySQL Database: osTicket
 MySQL Username: root
 MySQL Password: root
 Click “Install Now!”
+<p><img src="https://i.imgur.com/5B5JewY.png" alt="osTicket logo"height="80%" width="80%" alt="Step 1"/>
+</p>
 
-Congratulations, hopefully it is installed with no errors!
-Browse to your help desk login page: http://localhost/osTicket/scp/login.php
+Enjoy!
 
 
